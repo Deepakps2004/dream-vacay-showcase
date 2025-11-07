@@ -118,7 +118,10 @@ const Packages = () => {
                 </CardContent>
                 
                 <CardFooter>
-                  <Button className="w-full gradient-hero hover:opacity-90 transition-opacity text-lg py-6">
+                  <Button 
+                    className="w-full gradient-hero hover:opacity-90 transition-opacity text-lg py-6"
+                    onClick={() => window.open('https://wa.me/916369181439?text=hi', '_blank')}
+                  >
                     Book Now
                   </Button>
                 </CardFooter>
@@ -137,7 +140,12 @@ const Packages = () => {
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Let us create a custom package tailored just for you. Contact our travel experts today!
           </p>
-          <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+          <Button 
+            size="lg" 
+            variant="secondary" 
+            className="text-lg px-8 py-6"
+            onClick={() => window.open('https://wa.me/916369181439?text=hi', '_blank')}
+          >
             Request Custom Package
           </Button>
         </div>

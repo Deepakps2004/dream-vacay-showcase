@@ -59,30 +59,32 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <Carousel
-          opts={{
-            loop: true,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 4000,
-            }),
-          ]}
-          className="absolute inset-0"
+      <Carousel
+  opts={{
+    loop: true,
+  }}
+  plugins={[
+    Autoplay({
+      delay: 4000,
+    }),
+  ]}
+  className="absolute inset-0"
+>
+  <CarouselContent className="h-screen">
+    {[heroImage, maldivesImg, mountainsImg, singaporeImg, malaysiaImg].map((image, index) => (
+      <CarouselItem key={index} className="relative h-screen w-full">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${image})` }}
         >
-          <CarouselContent className="h-screen">
-            {[heroImage, maldivesImg, mountainsImg, singaporeImg, malaysiaImg].map((image, index) => (
-              <CarouselItem key={index} className="h-screen">
-                <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${image})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-accent/60" />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+<div className="absolute inset-0 bg-black/60" />
+
+        </div>
+      </CarouselItem>
+    ))}
+  </CarouselContent>
+</Carousel>
+
         
         <div className="relative z-10 text-center px-4 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">

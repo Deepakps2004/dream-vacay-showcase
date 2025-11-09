@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { CheckCircle2, Clock, HeadphonesIcon, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -8,6 +9,9 @@ import heroImage from "@/assets/hero-beach.jpg";
 import maldivesImg from "@/assets/maldives.jpg";
 import mountainsImg from "@/assets/mountains.jpg";
 import singaporeImg from "@/assets/singapore.jpg";
+import indiaImg from "@/assets/india.jpg";
+import malaysiaImg from "@/assets/malaysia.jpg";
+import Autoplay from "embla-carousel-autoplay";
 
 const Index = () => {
   const features = [
@@ -119,37 +123,58 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Popular Destinations Section */}
+      {/* Tourist Places Carousel Section */}
       <section className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Popular Destinations</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Popular Tourist Places</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover breathtaking locations handpicked by our travel experts
+              Explore stunning destinations around the world
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {destinations.map((destination, index) => (
-              <div 
-                key={index}
-                className="group relative overflow-hidden rounded-2xl hover-lift cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={destination.image}
-                    alt={destination.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{destination.name}</h3>
-                  <p className="text-white/90">{destination.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent>
+              {[
+                { image: maldivesImg, name: "Maldives", description: "Paradise Islands" },
+                { image: mountainsImg, name: "Swiss Alps", description: "Mountain Majesty" },
+                { image: singaporeImg, name: "Singapore", description: "Garden City" },
+                { image: indiaImg, name: "India", description: "Incredible Heritage" },
+                { image: malaysiaImg, name: "Malaysia", description: "Tropical Wonders" },
+              ].map((place, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-2">
+                    <div className="group relative overflow-hidden rounded-2xl hover-lift cursor-pointer">
+                      <div className="aspect-[4/5] overflow-hidden">
+                        <img
+                          src={place.image}
+                          alt={place.name}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                        <h3 className="text-2xl font-bold text-white mb-2">{place.name}</h3>
+                        <p className="text-white/90">{place.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
 
           <div className="text-center mt-12">
             <Link to="/packages">

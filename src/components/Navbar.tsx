@@ -25,7 +25,7 @@ const Navbar = () => {
               <Plane className="h-6 w-6 text-white" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              WanderWay
+              G1 Tourism
             </span>
           </Link>
 
@@ -44,7 +44,10 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Button className="gradient-hero hover:opacity-90 transition-opacity">
+            <Button 
+              className="gradient-hero hover:opacity-90 transition-opacity"
+              onClick={() => window.open('https://wa.me/916369181439?text=hi', '_blank')}
+            >
               Book Now
             </Button>
           </div>
@@ -80,7 +83,10 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Button className="w-full gradient-hero hover:opacity-90 transition-opacity">
+            <Button 
+              className="w-full gradient-hero hover:opacity-90 transition-opacity"
+              onClick={() => window.open('https://wa.me/916369181439?text=hi', '_blank')}
+            >
               Book Now
             </Button>
           </div>

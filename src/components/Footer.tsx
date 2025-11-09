@@ -21,8 +21,8 @@ const Footer = () => {
               <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
               <div>
                 <p className="font-medium">Email</p>
-                <a href="mailto:info@wanderway.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  info@wanderway.com
+                <a href="mailto:info@g1tourism.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  info@g1tourism.com
                 </a>
               </div>
             </div>
@@ -116,7 +116,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground">
-            © {new Date().getFullYear()} WanderWay. All rights reserved. | Crafted with ❤️ for travelers
+            © {new Date().getFullYear()} G1 Tourism. All rights reserved. | Crafted with ❤️ for travelers
           </p>
         </div>
       </div>

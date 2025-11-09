@@ -59,12 +59,30 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
+        <Carousel
+          opts={{
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 4000,
+            }),
+          ]}
+          className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-accent/60" />
-        </div>
+          <CarouselContent className="h-screen">
+            {[heroImage, maldivesImg, mountainsImg, singaporeImg, malaysiaImg].map((image, index) => (
+              <CarouselItem key={index} className="h-screen">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${image})` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-accent/60" />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
         
         <div className="relative z-10 text-center px-4 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
@@ -82,7 +100,7 @@ const Index = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
           <div className="w-6 h-10 border-2 border-white rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-white rounded-full animate-pulse" />
           </div>
